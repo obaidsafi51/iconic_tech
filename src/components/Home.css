@@ -1,0 +1,203 @@
+/* Home.css */
+
+/* Container with animated background and grid layout */
+.home-container {
+    background: linear-gradient(120deg, #7ebfb3, #194759);
+    background-size: 200% 200%;
+    animation: gradient-animation 8s ease infinite;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns: 1 for text, 1 for image */
+    align-items: center;
+    gap: 20px;
+    padding: 10rem 3rem 3rem;
+    overflow: hidden; /* Prevent any overflow during animation */
+}
+
+/* Animated background keyframes */
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Text content animation from the left */
+.text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: slide-in-left 1s ease forwards; /* Apply animation */
+    opacity: 0; /* Hidden initially */
+    margin: 0 auto;
+}
+
+/* Image content animation from the right */
+.image-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slide-in-right 1s ease forwards; /* Apply animation */
+    opacity: 0; /* Hidden initially */
+}
+
+/* Text animation keyframes (slide in from the left) */
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Image animation keyframes (slide in from the right) */
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Styling for the text */
+.text-content h1 {
+    font-size: 3rem; /* Larger font for big screens */
+    margin-bottom: 1rem;
+    font-family: Poppins;
+    font-weight: 700;
+    font-style: italic;
+    color: #fff;
+    text-align: left;
+    line-height: 4rem;
+}
+
+.text-content h1 span.bussiness {
+    font-size: 6rem;
+}
+
+.text-content p {
+    font-size: 1.4rem; /* Slightly larger for big screens */
+    color: #194759;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Styling for the image */
+.image-content img {
+    width: 100%;
+    max-width: 550px; /* Ensure the image does not exceed a maximum width */
+    height: auto;
+}
+
+/* Responsive design for medium-sized screens (e.g., tablets) */
+@media screen and (max-width: 1024px) {
+    .home-container {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+        text-align: center;
+    }
+  
+    .text-content h1 {
+        font-size: 1.5rem; /* Adjust font size */
+        line-height: 3rem;
+        text-align: left; /* Center text for smaller screens */
+    }
+    .text-content h1 span:nth-child(2){
+        font-size: 4rem;
+    }
+
+    .text-content p {
+        font-size: 1.1rem; /* Adjust paragraph size */
+        text-align: left;
+    }
+
+    .image-content {
+        margin-top: 20px; /* Add space between text and image when stacked */
+    }
+
+    .image-content img {
+        max-width: 500px; /* Reduce image size for medium-sized screens */
+    }
+}
+
+/* Responsive design for small screens (e.g., smartphones) */
+@media screen and (max-width: 768px) {
+    .home-container {
+        grid-template-columns: 1fr; /* Single column layout */
+        text-align: center;
+        padding: 10rem 1rem 5rem 1rem; /* Less padding on smaller screens */
+    }
+
+    .text-content h1 {
+        font-size: 2rem; /* Adjust font size */
+        line-height: 3.5rem;
+    }
+
+    .text-content h1 span.bussiness {
+        font-size: 6rem; /* Adjust size of span for smaller screens */
+    }
+
+    .text-content p {
+        font-size: 1.5rem; /* Smaller text for smaller screens */
+        text-align: left;
+    }
+
+    .image-content img {
+        max-width: 500px; /* Smaller image size for smartphones */
+    }
+}
+
+/* Additional responsive styles for very small screens */
+@media screen and (max-width: 480px) {
+    .home-container {
+        padding: 8rem 1rem 4rem 1rem;
+    }
+
+    .text-content h1 {
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+.text-content h1 span.bussiness {
+        font-size: 3rem; /* Adjust size of span for smaller screens */
+    }
+    .text-content p {
+        font-size: 0.9rem;
+    }
+
+    .image-content img {
+        max-width: 300px;
+    }
+}
+/*
+Additional responsive styles for very small screens
+@media screen and (max-width: 380px) {
+    .home-container {
+        padding: 10rem 1rem 5rem 1rem;
+    }
+   
+    .text-content h1 {
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+    .text-content h1 span.bussiness {
+        font-size: 3rem; 
+    }
+
+    .text-content p {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
+    .image-content img {
+        max-width: 300px;
+    }
+}*/

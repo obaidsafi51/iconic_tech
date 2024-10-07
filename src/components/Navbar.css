@@ -1,0 +1,162 @@
+/* Base Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+.logo{
+    padding: 1rem 3rem;
+}
+
+.logo img{
+    width: 100%;
+    max-width: 200px;
+    cursor: pointer;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: auto;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+    position: relative;
+}
+
+/* Link Base Styling */
+.nav-links li a {
+    color: #194759;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 1rem;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 12rem;
+}
+
+/* Span inside the link - for text animation */
+.nav-links li a span {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.4s ease-in-out, opacity 0.2s;
+    transform: translateY(0); /* Initially at its normal position */
+    opacity: 1; /* Visible initially */
+}
+
+/* Hover effect - text disappears and slides down from the top */
+.nav-links li a:hover span {
+    opacity: 0; /* Disappear first */
+    transform: translateY(-100%); /* Move up (out of view) first */
+    transition: opacity 0.1s ease, transform 0.2s ease-in-out; /* First disappears, then moves up */
+}
+
+/* After the hover starts, re-appear sliding down */
+.nav-links li a:hover span {
+    animation: slide-down 0.2s ease-in-out 0.1s forwards; /* 0.1s delay for the effect */
+}
+
+/* Keyframe for sliding down */
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Background hover effect */
+.nav-links li a:hover {
+    background-color: #194759;
+    border-radius: 10rem;
+    color: #fff;
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #194759;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.hamburger .close-btn {
+    font-size: 3rem;
+    color: #194759;
+    cursor: pointer;
+  
+}
+
+
+
+/* Media Queries for Small Screens */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 6.6rem;
+        right: 0;
+       
+        width: 200px;
+        background-color: #f3f3f3;
+        display: flex;
+        flex-direction: column;
+        
+        align-items: top;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links.open {
+        transform: translateX(0%);
+    }
+
+    .nav-links li {
+        margin: 10px auto;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+    .logo{
+        padding:1rem 0 ;
+    }
+    
+    .logo img{
+        width: 100%;
+        max-width: 200px;
+        cursor: pointer;
+    }
+}
+@media screen and (max-width: 480px) {
+    .logo{
+        padding:1rem 0 ;
+    }
+    
+    .logo img{
+        width: 100%;
+        max-width: 100px;
+        cursor: pointer;
+    }
+}

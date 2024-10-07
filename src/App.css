@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, serif;
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the app takes the full viewport height */
+}
+
+Footer {
+  margin-top: auto; /* Push the footer to the bottom of the page */
+}
+
+
+/* Services, About Us, Contact Us page styling */
+
+.services-container, .about-container, .contact-container {
+  padding-top: 6rem; /* Offset for fixed navbar */
+  text-align: center;
+}
